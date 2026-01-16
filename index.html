@@ -11,26 +11,50 @@
 <body>
 
   <div class="container">
-    <div class="profile-card">
-      <div class="pfp-area">
-        <img id="user-pfp" src="" alt="pfp">
-        <div id="status-dot"></div>
+
+    <!-- left column-->
+    <div class="left-column">
+      <div class="profile-card">
+        <div class="pfp-area">
+          <img id="user-pfp" src="" alt="pfp">
+          <div id="status-dot"></div>
+        </div>
+
+        <div class="profile-info">
+          <div id="username" class="user-name">Loading...</div>
+          <div class="bio">Passionate developer & designer</div>
+          <div class="location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Germany
+          </div>
+          <div class="social-buttons">
+            <a href="https://web.telegram.org/k/#@Kyogrexyz" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/zxxvyv" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/084.marius" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="profile-info">
-        <div id="username" class="user-name">Loading...</div>
-        <div class="bio">Passionate developer & designer</div>
-        <div class="location">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Germany
+
+      <div class="middle-column">
+        <div class="specs-card">
+          <h3>My Specs</h3>
+          <ul>
+            <li>GPU: GTX 1650</li>
+            <li>CPU: Intel Core i5 9300</li>
+            <li>RAM: 16GB</li>
+          </ul>
         </div>
-        <div class="social-buttons">
-          <a href="https://web.telegram.org/k/#@Kyogrexyz" target="_blank"><i class="fab fa-telegram"></i></a>
-          <a href="https://github.com/zxxvyv" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/084.marius" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
+      </div>
+      
+      <div class="ad-card">
+        <h3>ad</h3>
+        <ul>
+          <li>Your add here!</li>
+        </ul>
       </div>
     </div>
 
+    <!-- status column-->
     <div class="status-column">
       <div class="status-card">
         <div class="background-container">
@@ -54,6 +78,45 @@
           <div class="time-label">Local Time</div>
           <div id="germany-time" class="time-value">--:--</div>
         </div>
+      </div>
+
+      <div class="projects-card">
+        <h3>Projects</h3>
+
+        <a href="https://github.com/zxxvyv/minecraft-1.21.1-client-base/tree/main" target="_blank" class="project-link">
+          <div class="project">
+            <div class="project-title">Minecraft 1.21.1 Client Base</div>
+            <div class="project-desc">Minecraft client base for 1.21.1</div>
+          </div>
+        </a>  
+
+        <a href="https://github.com/zxxvyv/CS2-external-ESP-Base" target="_blank" class="project-link">
+          <div class="project">
+            <div class="project-title">Cs2 external cheat base</div>
+            <div class="project-desc">Counter-Strike 2 external base without WPM</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/zxxvyv/Esp32-Cyd-weather-Display" target="_blank" class="project-link">
+          <div class="project">
+            <div class="project-title">Esp32-Cyd-weather-Display</div>
+            <div class="project-desc">Weather display for Esp32-Cyd</div>
+          </div>
+        </a>
+
+        <a href="https://kyogre.xyz/biolink" target="_blank" class="project-link">
+          <div class="project">
+            <div class="project-title">Biolink</div>
+            <div class="project-desc">Personal biolink written in HTML & CSS</div>
+          </div>
+        </a>
+
+        <a href="https://kyogre.xyz/portfolio" target="_blank" class="project-link">
+          <div class="project">
+            <div class="project-title">Portfolio</div>
+            <div class="project-desc">Personal portfolio website</div>
+          </div>
+        </a>
       </div>
     </div>
 
