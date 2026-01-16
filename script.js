@@ -67,3 +67,94 @@ function updateTimer() {
 setInterval(updateData, 15000);
 setInterval(updateTimer, 1000);
 updateData();
+
+// music player
+
+const playBtn = document.getElementById("play-btn");
+const playIcon = document.getElementById("play-icon");
+const audio = document.getElementById("audio-player");
+
+const progressContainer = document.querySelector(".progress-container");
+const progressBar = document.getElementById("progress-bar");
+
+playBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playIcon.classList.remove("fa-play");
+    playIcon.classList.add("fa-pause");
+  } else {
+    audio.pause();
+    playIcon.classList.remove("fa-pause");
+    playIcon.classList.add("fa-play");
+  }
+});
+
+audio.addEventListener("timeupdate", () => {
+  if (!audio.duration) return;
+  const progressPercent = (audio.currentTime / audio.duration) * 100;
+  progressBar.style.width = `${progressPercent}%`;
+});
+
+progressContainer.addEventListener("click", (e) => {
+  const width = progressContainer.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
+});
+
+// GERMANYYYYY TIMEEEE
+
+function updateGermanyTime() {
+  const now = new Date();
+
+  const formatter = new Intl.DateTimeFormat("de-DE", {
+    timeZone: "Europe/Berlin",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+
+  document.getElementById("germany-time").textContent =
+    formatter.format(now);
+}
+
+setInterval(updateGermanyTime, 1000);
+updateGermanyTime();
+
+// recents 
+const LASTFM_USER = "zxxvyv";
+const LASTFM_API_KEY = "e99f27fde0ffb694acbfa4f35c96d348";
+
+async function fetchRecentTracks() {
+  try {
+    const res = await fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&format=json&limit=5`
+    );
+    const data = await res.json();
+    const tracks = data.recenttracks.track;
+
+    const container = document.getElementById("recent-tracks");
+    container.innerHTML = tracks
+      .map(track => {
+        const name = track.name;
+        const artist = track.artist["#text"];
+        const image = track.image[1]["#text"] || "assets/cover.png"; // mittleres Bild
+        return `
+          <div class="recent-track-item">
+            <img src="${image}" alt="${name}" />
+            <div class="recent-track-info">
+              <div class="track-name">${name}</div>
+              <div class="track-artist">${artist}</div>
+            </div>
+          </div>
+        `;
+      })
+      .join("");
+  } catch (e) {
+    console.error("Error fetching Last.fm tracks:", e);
+  }
+}
+
+fetchRecentTracks();
+setInterval(fetchRecentTracks, 30000);
