@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>zxxvyv portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
   <link rel="icon" type="image/x-icon" href="assets/Untitled_design-removebg-preview.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <div class="container">
-
-    <!-- left column-->
     <div class="left-column">
       <div class="profile-card">
         <div class="pfp-area">
@@ -46,95 +44,118 @@
         </div>
       </div>
       
-      <div class="ad-card">
-        <h3>ad</h3>
-        <ul>
-          <li>Your add here!</li>
+      <div class="recent-card">
+        <h3>Recent Tracks</h3>
+        <ul id="recent-tracks">
+          <li>Loading...</li>
         </ul>
       </div>
     </div>
 
-    <!-- status column-->
-    <div class="status-column">
-      <div class="status-card">
-        <div class="background-container">
-          <img src="assets/background.gif" alt="background" class="bg-gif" id="bg-image">
-          <div class="overlay"></div>
+    <div class="status-music-wrapper">
+
+      <div class="status-column">
+        <div class="status-card">
+          <div class="background-container">
+            <img src="assets/background.gif" alt="background" class="bg-gif" id="bg-image">
+            <div class="overlay"></div>
+          </div>
+          <div class="discord-icon">
+            <svg width="18" height="18" viewBox="0 0 127.14 96.36" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.06,72.06,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.78,56.63.48,80.1a105.73,105.73,0,0,0,32.22,16.26,77.7,77.7,0,0,0,7.34-11.97,68.21,68.21,0,0,1-11.85-5.65c.97-.69,1.92-1.42,2.82-2.18a74.13,74.13,0,0,0,65.3,0c.9.76,1.85,1.49,2.82,2.18a68.21,68.21,0,0,1-11.85,5.65,77.7,77.7,0,0,0,7.34,11.97,105.73,105.73,0,0,0,32.22-16.26C130.33,51.72,121.39,28.1,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5.07-12.72,11.41-12.72S54,46,53.86,53,48.79,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.07-12.72,11.44-12.72S96.28,46,96.12,53,91.06,65.69,84.69,65.69Z"/></svg>
+          </div>
+          <div class="content">
+            <img id="game-icon" class="game-icon" src="" style="display: none;">
+            <div class="text-wrapper">
+              <div id="activity-name" class="status-text">No activity</div>
+              <div id="activity-time" class="time-text"></div>
+            </div>
+          </div>
         </div>
-        <div class="discord-icon">
-          <svg width="18" height="18" viewBox="0 0 127.14 96.36" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.06,72.06,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.78,56.63.48,80.1a105.73,105.73,0,0,0,32.22,16.26,77.7,77.7,0,0,0,7.34-11.97,68.21,68.21,0,0,1-11.85-5.65c.97-.69,1.92-1.42,2.82-2.18a74.13,74.13,0,0,0,65.3,0c.9.76,1.85,1.49,2.82,2.18a68.21,68.21,0,0,1-11.85,5.65,77.7,77.7,0,0,0,7.34,11.97,105.73,105.73,0,0,0,32.22-16.26C130.33,51.72,121.39,28.1,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5.07-12.72,11.41-12.72S54,46,53.86,53,48.79,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.07-12.72,11.44-12.72S96.28,46,96.12,53,91.06,65.69,84.69,65.69Z"/></svg>
-        </div>
-        <div class="content">
-          <img id="game-icon" class="game-icon" src="" style="display: none;">
-          <div class="text-wrapper">
-            <div id="activity-name" class="status-text">No activity</div>
-            <div id="activity-time" class="time-text"></div>
+
+        <div class="time-card">
+          <div class="time-content">
+            <div class="time-label">Local Time</div>
+            <div id="germany-time" class="time-value">--:--</div>
           </div>
         </div>
       </div>
 
-      <div class="time-card">
-        <div class="time-content">
-          <div class="time-label">Local Time</div>
-          <div id="germany-time" class="time-value">--:--</div>
+      <div class="bottom-column">
+        <div class="projects-card">
+            <h3>Projects</h3>
+            <a href="https://github.com/zxxvyv/minecraft-1.21.1-client-base/tree/main" target="_blank" class="project-link">
+              <div class="project">
+                <div class="project-title">Minecraft 1.21.1 Client Base</div>
+                <div class="project-desc">Minecraft client base for 1.21.1</div>
+              </div>
+            </a>  
+
+            <a href="https://github.com/zxxvyv/CS2-external-ESP-Base" target="_blank" class="project-link">
+              <div class="project">
+                <div class="project-title">Cs2 external cheat base</div>
+                <div class="project-desc">Counter-Strike 2 external base without WPM</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/zxxvyv/Esp32-Cyd-weather-Display" target="_blank" class="project-link">
+              <div class="project">
+                <div class="project-title">Esp32-Cyd-weather-Display</div>
+                <div class="project-desc">Weather display for Esp32-Cyd</div>
+              </div>
+            </a>
+
+            <a href="https://kyogre.xyz/biolink" target="_blank" class="project-link">
+              <div class="project">
+                <div class="project-title">Biolink</div>
+                <div class="project-desc">Personal biolink written in HTML & CSS</div>
+              </div>
+            </a>
+
+            <a href="https://kyogre.xyz/portfolio" target="_blank" class="project-link">
+              <div class="project">
+                <div class="project-title">Portfolio</div>
+                <div class="project-desc">Personal portfolio website</div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="projects-card">
-        <h3>Projects</h3>
-
-        <a href="https://github.com/zxxvyv/minecraft-1.21.1-client-base/tree/main" target="_blank" class="project-link">
-          <div class="project">
-            <div class="project-title">Minecraft 1.21.1 Client Base</div>
-            <div class="project-desc">Minecraft client base for 1.21.1</div>
+      <div class="right-column">
+        <div class="music-card">
+          <img id="music-cover" class="music-cover" src="assets/cover.png" alt="cover">
+          <div class="music-info">
+            <div id="music-title" class="music-title">Lass alles fallen</div>
+            <div id="music-artist" class="music-artist">Beyazz</div>
           </div>
-        </a>  
-
-        <a href="https://github.com/zxxvyv/CS2-external-ESP-Base" target="_blank" class="project-link">
-          <div class="project">
-            <div class="project-title">Cs2 external cheat base</div>
-            <div class="project-desc">Counter-Strike 2 external base without WPM</div>
+          <div class="music-controls">
+            <button id="play-btn" class="play-btn" aria-label="Play"><i id="play-icon" class="fa-solid fa-play"></i></button>
           </div>
-        </a>
-
-        <a href="https://github.com/zxxvyv/Esp32-Cyd-weather-Display" target="_blank" class="project-link">
-          <div class="project">
-            <div class="project-title">Esp32-Cyd-weather-Display</div>
-            <div class="project-desc">Weather display for Esp32-Cyd</div>
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
           </div>
-        </a>
+          <audio id="audio-player" src="assets/music.mp3"></audio>
+        </div>
 
-        <a href="https://kyogre.xyz/biolink" target="_blank" class="project-link">
-          <div class="project">
-            <div class="project-title">Biolink</div>
-            <div class="project-desc">Personal biolink written in HTML & CSS</div>
+        <div class="contact-card">
+          <h3>Contact Me</h3>
+            <div class="contact-buttons">
+            <a href="https://t.me/Kyogrexyz" target="_blank" class="contact-btn telegram-btn">
+            <i class="fab fa-telegram"></i>
+            Telegram
+            </a>
+            <button id="copy-discord-btn" class="contact-btn discord-btn">
+              <i class="fab fa-discord"></i>
+              Discord
+              </button>
+            <div id="copy-msg" class="copy-msg">Copied!</div>
           </div>
-        </a>
-
-        <a href="https://kyogre.xyz/portfolio" target="_blank" class="project-link">
-          <div class="project">
-            <div class="project-title">Portfolio</div>
-            <div class="project-desc">Personal portfolio website</div>
-          </div>
-        </a>
+        </div>
       </div>
     </div>
 
-    <div class="music-card">
-      <img id="music-cover" class="music-cover" src="assets/cover.png" alt="cover">
-      <div class="music-info">
-        <div id="music-title" class="music-title">Lass alles fallen</div>
-        <div id="music-artist" class="music-artist">Beyazz</div>
-      </div>
-      <div class="music-controls">
-        <button id="play-btn" class="play-btn" aria-label="Play"><i id="play-icon" class="fa-solid fa-play"></i></button>
-      </div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-      <audio id="audio-player" src="assets/music.mp3"></audio>
-    </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

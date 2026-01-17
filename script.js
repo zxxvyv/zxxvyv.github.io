@@ -121,3 +121,71 @@ function updateGermanyTime() {
 
 setInterval(updateGermanyTime, 1000);
 updateGermanyTime();
+
+// recents 
+const LASTFM_USER = "zxxvyv";
+const LASTFM_API_KEY = "e99f27fde0ffb694acbfa4f35c96d348";
+
+function timeAgo(dateStr) {
+  const now = new Date();
+  const past = new Date(dateStr + " UTC");
+  const diff = Math.floor((now - past) / 1000);
+
+  if (diff < 60) return `${diff}s ago`;
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  return `${Math.floor(diff / 86400)}d ago`;
+}
+
+async function fetchRecentTracks() {
+  try {
+    const res = await fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&format=json&limit=50`
+    );
+    const data = await res.json();
+    const tracks = data.recenttracks.track;
+
+    const container = document.getElementById("recent-tracks");
+    container.innerHTML = tracks
+      .map(track => {
+        const name = track.name;
+        const artist = track.artist["#text"];
+        const image = track.image[1]["#text"] || "assets/cover.png";
+        // correctly handle now playing
+        const time = track["@attr"]?.nowplaying === "true"
+          ? "Now playing"
+          : track.date
+          ? timeAgo(track.date["#text"])
+          : "";
+
+        return `
+          <div class="recent-track-item">
+            <img src="${image}" alt="${name}" />
+            <div class="recent-track-info">
+              <div class="track-name">${name}</div>
+              <div class="track-artist">${artist}</div>
+            </div>
+            <div class="track-time">${time}</div>
+          </div>
+        `;
+      })
+      .join("");
+  } catch (e) {
+    console.error("Error fetching Last.fm tracks:", e);
+  }
+}
+
+fetchRecentTracks();
+setInterval(fetchRecentTracks, 30000);
+
+// copy dc name
+const discordBtn = document.getElementById("copy-discord-btn");
+const copyMsg = document.getElementById("copy-msg");
+const DISCORD_TAG = "ntoskrnl.sys";
+
+discordBtn.addEventListener("click", () => {
+  navigator.clipboard.writeText(DISCORD_TAG).then(() => {
+    copyMsg.style.opacity = 1;
+    setTimeout(() => copyMsg.style.opacity = 0, 1500);
+  });
+});
